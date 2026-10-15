@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#17201c">
     <meta name="description" content="Câmeras, alarmes, acesso e gravação. Encontre a tecnologia certa para proteger sua casa e seu negócio na EYESZONE.">
-    <title>Segurança sob seu controle | EYESZONE</title>
+    <title>Segurança, em foco. | EYESZONE</title>
     <link rel="icon" type="image/png" href="./assets/logo-eyeszone.png">
     <link rel="stylesheet" href="./styles.css">
     <script type="module" src="./js/index.js"></script>
   </head>
-  <body>
+  <body class="home-page">
     <a class="skip-link" href="#main">Pular para o conteúdo</a>
     <header class="site-header masthead">
       <div class="header-inner">
@@ -28,9 +28,7 @@
           <div id="search-panel" class="search-panel" hidden>
             <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
             <ul id="search-suggestions" role="listbox" aria-label="Sugestões de produtos"></ul>
-            <button type="submit" form="site-search" class="search-all plain">
-              Ver todos os resultados
-            </button>
+            <button type="submit" form="site-search" class="search-all plain">Ver todos os resultados</button>
           </div>
 
         </div>
@@ -48,7 +46,6 @@
 
     <div class="store" id="store-layout">
       <aside class="rail department-rail">
-        <p class="overline">DEPARTAMENTOS</p>
         <nav id="category-navigation" class="main-nav" aria-label="Departamentos da loja">
           <a href="categoria.html?categoria=cameras" data-nav="cameras"><span class="department-number" aria-hidden="true">01</span><strong>Câmeras de segurança</strong><small>6 equipamentos</small><span data-icon="chevron"></span></a>
           <a href="categoria.html?categoria=alarmes" data-nav="alarmes"><span class="department-number" aria-hidden="true">02</span><strong>Alarmes e sensores</strong><small>4 equipamentos</small><span data-icon="chevron"></span></a>
@@ -57,123 +54,68 @@
           <a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>23</b></a>
         </nav>
 
-        <div class="rail-help">
-          <p>Antes de instalar</p>
-          <span>Confira alimentação, conexão e compatibilidade na página do equipamento.</span><button class="plain" type="button" data-info="instalacao">
-            Orientações de instalação
-          </button>
-        </div>
-
       </aside>
 
       <main id="main" class="main-content is-home" tabindex="-1">
-        <div class="store-topline">
-          <h1>Equipamentos de segurança</h1>
-          <span>23 produtos · 4 departamentos</span>
-        </div>
+        <nav class="home-shortcuts" aria-label="Seções da página inicial">
+          <span>Bem-vindo à EYESZONE</span>
+          <a href="#destaques">Destaques</a>
+          <a href="#promocoes">Promoções</a>
+          <a href="#catalogo">Catálogo</a>
+        </nav>
 
-        <section class="shelf cameras">
-          <div class="section-head">
-            <div class="heading-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" data-asset-id="eyeszone-department-bracket">
-                <path d="M3 11V3h8M17 25h8v-8" stroke="#116454" stroke-width="2"/>
-                <path d="m10 18 8-8" stroke="#116454" stroke-width="2"/></svg><span class="department-number" aria-hidden="true">01</span>
-              <h2>Câmeras de segurança</h2>
-            </div>
-
-            <span class="result-count">6 equipamentos</span>
+        <section class="home-hero" aria-label="Destaque da loja">
+          <div class="home-hero-copy">
+            <p class="home-eyebrow">Seu espaço. Sob seu controle.</p>
+            <h1>Segurança,<br>em foco.</h1>
+            <p class="home-hero-description">
+              Da primeira câmera ao controle de acesso. Encontre os equipamentos para cuidar de perto do seu
+              espaço.
+            </p>
+            <a class="home-hero-link" href="produtos.html">Explorar o catálogo
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/></svg></a>
+            <span class="home-hero-index" aria-hidden="true">EYESZONE / EQUIPAMENTOS DE SEGURANÇA</span>
           </div>
 
-          <div class="camera-shelf">
-            <article class="card product-card feature" data-product-id="9">
-              <a class="card-link" href="produto.html?id=9">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 09</span><img src="./assets/product-kit-cameras.png" data-product-image data-asset-id="eyeszone-product-9" alt="" loading="eager" fetchpriority="high" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
+          <div class="home-featured-product" data-product-id="9">
+            <div class="home-featured-top"><span>Em foco</span><span>EZ / 09</span></div>
+            <a class="home-featured-link" href="produto.html?id=9">
+              <div class="home-featured-image photo">
+                <img src="./assets/product-kit-cameras.png" data-product-image alt="" width="894" height="445" fetchpriority="high" loading="eager">
+                <span class="image-fallback" hidden>Imagem indisponível</span>
+              </div>
+
+              <div class="home-featured-caption">
+                <div>
+                  <p>Duas câmeras · Base central</p>
+                  <h2>Kit Câmeras Duo Base</h2>
                 </div>
 
-                <div class="card-copy">
-                  <h3>Kit Câmeras Duo Base</h3>
-                  <p>Duas câmeras · Base central</p>
-                  <strong class="price">R$ 899,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="9" aria-pressed="false" aria-label="Comparar Kit Câmeras Duo Base">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <div class="camera-side">
-              <div class="camera-pair">
-                <article class="card product-card" data-product-id="1">
-                  <a class="card-link" href="produto.html?id=1">
-                    <div class="photo product-card-image">
-                      <span class="code">EZ / 01</span><img src="./assets/product-1.png" data-product-image data-asset-id="eyeszone-product-1" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                    </div>
-
-                    <div class="card-copy">
-                      <h3>Câmera Bullet Essential</h3>
-                      <p>Formato bullet · Suporte de fixação</p>
-                      <strong class="price">R$ 189,90</strong>
-                    </div> </a><button type="button" class="compare compare-toggle" data-compare="1" aria-pressed="false" aria-label="Comparar Câmera Bullet Essential">
+                <div class="home-featured-price">
+                  <strong class="price">R$ 899,90</strong><span>Conhecer o kit
                     <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-                  </button>
-                </article>
-
-                <article class="card product-card" data-product-id="2">
-                  <a class="card-link" href="produto.html?id=2">
-                    <div class="photo product-card-image">
-                      <span class="code">EZ / 02</span><img src="./assets/product-2.png" data-product-image data-asset-id="eyeszone-product-2" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                    </div>
-
-                    <div class="card-copy">
-                      <h3>Câmera Dupla Vision</h3>
-                      <p>Duas lentes · Design articulado</p>
-                      <strong class="price">R$ 349,90</strong>
-                    </div> </a><button type="button" class="compare compare-toggle" data-compare="2" aria-pressed="false" aria-label="Comparar Câmera Dupla Vision">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-                  </button>
-                </article>
+                      <path d="m9 5 7 7-7 7"/></svg></span>
+                </div>
 
               </div>
 
-              <article class="card product-card horizontal" data-product-id="3">
-                <a class="card-link" href="produto.html?id=3">
-                  <div class="photo product-card-image">
-                    <span class="code">EZ / 03</span><img src="./assets/product-5.png" data-product-image data-asset-id="eyeszone-product-3" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                  </div>
-
-                  <div class="card-copy">
-                    <h3>Câmera Dome Compact</h3>
-                    <p>Formato dome · Acabamento discreto</p>
-                    <strong class="price">R$ 159,90</strong>
-                  </div> </a><button type="button" class="compare compare-toggle" data-compare="3" aria-pressed="false" aria-label="Comparar Câmera Dome Compact">
-                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-                </button>
-              </article>
-
-            </div>
-
+            </a>
           </div>
 
-          <div class="product-grid shelf-additions">
-            <article class="card product-card" data-product-id="14">
-              <a class="card-link" href="produto.html?id=14">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 14</span><img src="./assets/tapo-c200.png" data-product-image data-asset-id="eyeszone-product-14" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
+        </section>
 
-                <div class="card-copy">
-                  <h3>Câmera Wi-Fi Tapo C200</h3>
-                  <p>Full HD · Movimento pan/tilt</p>
-                  <strong class="price">R$ 219,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="14" aria-pressed="false" aria-label="Comparar Câmera Wi-Fi Tapo C200">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
+        <section class="home-section" id="destaques" aria-labelledby="highlights-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-eyebrow">01 / Destaques</p>
+              <h2 id="highlights-title">Um olhar para cada necessidade.</h2>
+            </div>
 
+            <p>Câmeras, alarmes, fechaduras e gravação.<br>Conheça a seleção da EYESZONE.</p>
+          </div>
+
+          <div class="home-highlights">
             <article class="card product-card" data-product-id="15">
               <a class="card-link" href="produto.html?id=15">
                 <div class="photo product-card-image">
@@ -190,220 +132,7 @@
               </button>
             </article>
 
-          </div>
-
-        </section>
-
-        <section class="shelf alarm-shelf">
-          <div class="section-head">
-            <div class="heading-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" data-asset-id="eyeszone-department-bracket">
-                <path d="M3 11V3h8M17 25h8v-8" stroke="#116454" stroke-width="2"/>
-                <path d="m10 18 8-8" stroke="#116454" stroke-width="2"/></svg><span class="department-number" aria-hidden="true">02</span>
-              <h2>Alarmes e sensores</h2>
-            </div>
-
-            <span class="result-count">4 equipamentos</span>
-          </div>
-
-          <div class="alarm-pair">
-            <article class="card product-card alarm-kit" data-product-id="4">
-              <a class="card-link" href="produto.html?id=4">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 04</span><img src="./assets/product-0.png" data-product-image data-asset-id="eyeszone-product-4" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Kit Alarme Protect</h3>
-                  <p>Central · Sensores · Controles</p>
-                  <strong class="price">R$ 429,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="4" aria-pressed="false" aria-label="Comparar Kit Alarme Protect">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card sensor" data-product-id="13">
-              <a class="card-link" href="produto.html?id=13">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 13</span><img src="./assets/product-sensor-movimento.png" data-product-image data-asset-id="eyeszone-product-13" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Sensor de Movimento Guard</h3>
-                  <p>Sensor de movimento · Suporte</p>
-                  <strong class="price">R$ 59,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="13" aria-pressed="false" aria-label="Comparar Sensor de Movimento Guard">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-          </div>
-
-          <div class="product-grid shelf-additions">
-            <article class="card product-card" data-product-id="16">
-              <a class="card-link" href="produto.html?id=16">
-                <div class="photo product-card-image photo-context">
-                  <span class="code">EZ / 16</span><img src="./assets/intelbras-ivp-8000-pet-cam.png" data-product-image data-asset-id="eyeszone-product-16" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Sensor com Câmera IVP 8000 PET CAM</h3>
-                  <p>Sem fio · Fotoverificação</p>
-                  <strong class="price">R$ 379,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="16" aria-pressed="false" aria-label="Comparar Sensor com Câmera IVP 8000 PET CAM">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card" data-product-id="17">
-              <a class="card-link" href="produto.html?id=17">
-                <div class="photo product-card-image photo-context">
-                  <span class="code">EZ / 17</span><img src="./assets/intelbras-xas-8000.png" data-product-image data-asset-id="eyeszone-product-17" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Sensor de Abertura XAS 8000</h3>
-                  <p>Portas e janelas · Sem fio</p>
-                  <strong class="price">R$ 179,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="17" aria-pressed="false" aria-label="Comparar Sensor de Abertura XAS 8000">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-          </div>
-
-        </section>
-
-        <section class="shelf access-shelf">
-          <div class="section-head">
-            <div class="heading-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" data-asset-id="eyeszone-department-bracket">
-                <path d="M3 11V3h8M17 25h8v-8" stroke="#116454" stroke-width="2"/>
-                <path d="m10 18 8-8" stroke="#116454" stroke-width="2"/></svg><span class="department-number" aria-hidden="true">03</span>
-              <h2>Controle de acesso</h2>
-            </div>
-
-            <span class="result-count">9 equipamentos</span>
-          </div>
-
-          <div class="access-list">
-            <article class="card product-card list-card" data-product-id="5">
-              <a class="card-link" href="produto.html?id=5">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 05</span><img src="./assets/product-6.png" data-product-image data-asset-id="eyeszone-product-5" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Fechadura Digital Handle</h3>
-                  <p>Painel numérico · Maçaneta integrada</p>
-                  <strong class="price">R$ 599,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="5" aria-pressed="false" aria-label="Comparar Fechadura Digital Handle">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="6">
-              <a class="card-link" href="produto.html?id=6">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 06</span><img src="./assets/product-3.png" data-product-image data-asset-id="eyeszone-product-6" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Fechadura Digital Gate</h3>
-                  <p>Modelo de sobrepor · Teclado numérico</p>
-                  <strong class="price">R$ 469,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="6" aria-pressed="false" aria-label="Comparar Fechadura Digital Gate">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="12">
-              <a class="card-link" href="produto.html?id=12">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 12</span><img src="./assets/product-videoporteiro-monitor.png" data-product-image data-asset-id="eyeszone-product-12" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Kit Videoporteiro com Monitor</h3>
-                  <p>Monitor interno · Painel externo</p>
-                  <strong class="price">R$ 549,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="12" aria-pressed="false" aria-label="Comparar Kit Videoporteiro com Monitor">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="7">
-              <a class="card-link" href="produto.html?id=7">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 07</span><img src="./assets/product-4.png" data-product-image data-asset-id="eyeszone-product-7" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Videoporteiro Connect</h3>
-                  <p>Câmera integrada · Botão de chamada</p>
-                  <strong class="price">R$ 299,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="7" aria-pressed="false" aria-label="Comparar Videoporteiro Connect">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="10">
-              <a class="card-link" href="produto.html?id=10">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 10</span><img src="./assets/product-leitor-portatil.png" data-product-image data-asset-id="eyeszone-product-10" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Leitor Biométrico Touch</h3>
-                  <p>Leitura biométrica · Visor frontal</p>
-                  <strong class="price">R$ 219,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="10" aria-pressed="false" aria-label="Comparar Leitor Biométrico Touch">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="11">
-              <a class="card-link" href="produto.html?id=11">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 11</span><img src="./assets/product-leitor-mesa.png" data-product-image data-asset-id="eyeszone-product-11" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Leitor Biométrico de Mesa</h3>
-                  <p>Formato de mesa · Cabo de conexão</p>
-                  <strong class="price">R$ 139,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="11" aria-pressed="false" aria-label="Comparar Leitor Biométrico de Mesa">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="8">
-              <a class="card-link" href="produto.html?id=8">
-                <div class="photo product-card-image">
-                  <span class="code">EZ / 08</span><img src="./assets/product-7.png" data-product-image data-asset-id="eyeszone-product-8" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>Campainha Duo</h3>
-                  <p>Botão de chamada · Receptor</p>
-                  <strong class="price">R$ 119,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="8" aria-pressed="false" aria-label="Comparar Campainha Duo">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-            <article class="card product-card list-card" data-product-id="18">
+            <article class="card product-card" data-product-id="18">
               <a class="card-link" href="produto.html?id=18">
                 <div class="photo product-card-image">
                   <span class="code">EZ / 18</span><img src="./assets/intelbras-fr-101.png" data-product-image data-asset-id="eyeszone-product-18" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
@@ -419,54 +148,17 @@
               </button>
             </article>
 
-            <article class="card product-card list-card" data-product-id="19">
-              <a class="card-link" href="produto.html?id=19">
+            <article class="card product-card" data-product-id="4">
+              <a class="card-link" href="produto.html?id=4">
                 <div class="photo product-card-image">
-                  <span class="code">EZ / 19</span><img src="./assets/intelbras-ivr-1010.png" data-product-image data-asset-id="eyeszone-product-19" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
+                  <span class="code">EZ / 04</span><img src="./assets/product-0.png" data-product-image data-asset-id="eyeszone-product-4" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
                 </div>
 
                 <div class="card-copy">
-                  <h3>Videoporteiro Intelbras IVR 1010</h3>
-                  <p>Unidade interna · Painel externo</p>
-                  <strong class="price">R$ 699,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="19" aria-pressed="false" aria-label="Comparar Videoporteiro Intelbras IVR 1010">
-                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
-              </button>
-            </article>
-
-          </div>
-
-        </section>
-
-        <section class="shelf storage-shelf">
-          <div class="section-head">
-            <div class="heading-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" data-asset-id="eyeszone-department-bracket">
-                <path d="M3 11V3h8M17 25h8v-8" stroke="#116454" stroke-width="2"/>
-                <path d="m10 18 8-8" stroke="#116454" stroke-width="2"/></svg><span class="department-number" aria-hidden="true">04</span>
-              <h2>Gravação e armazenamento</h2>
-            </div>
-
-            <span class="result-count">4 equipamentos</span>
-          </div>
-
-          <p class="storage-intro">
-            O gravador reúne as imagens. O HD ou cartão define onde elas ficam. Confira o tipo de
-            câmera e a mídia aceita pelo equipamento.
-          </p>
-          <div class="product-grid storage-grid">
-            <article class="card product-card" data-product-id="20">
-              <a class="card-link" href="produto.html?id=20">
-                <div class="photo product-card-image photo-context">
-                  <span class="code">EZ / 20</span><img src="./assets/intelbras-mhdx-1304.png" data-product-image data-asset-id="eyeszone-product-20" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
-                </div>
-
-                <div class="card-copy">
-                  <h3>DVR Intelbras MHDX 1304</h3>
-                  <p>4 canais · Multi HD · Full HD</p>
-                  <strong class="price">R$ 499,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="20" aria-pressed="false" aria-label="Comparar DVR Intelbras MHDX 1304">
+                  <h3>Kit Alarme Protect</h3>
+                  <p>Central · Sensores · Controles</p>
+                  <strong class="price">R$ 429,90</strong>
+                </div> </a><button type="button" class="compare compare-toggle" data-compare="4" aria-pressed="false" aria-label="Comparar Kit Alarme Protect">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
               </button>
@@ -488,17 +180,54 @@
               </button>
             </article>
 
-            <article class="card product-card" data-product-id="22">
-              <a class="card-link" href="produto.html?id=22">
+          </div>
+
+        </section>
+
+        <section class="home-offers home-section" id="promocoes" aria-labelledby="offers-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-eyebrow">02 / Promoções</p>
+              <h2 id="offers-title">Pequenas escolhas.<br>Mais proteção.</h2>
+            </div>
+
+            <div class="home-offer-intro">
+              <span class="home-budget">Seleção até R$ 300,00</span>
+              <p>
+                Uma câmera Wi-Fi, um sensor ou mais espaço para as gravações. Comece pelo que você precisa.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="home-offer-grid">
+            <article class="card product-card" data-product-id="14">
+              <a class="card-link" href="produto.html?id=14">
                 <div class="photo product-card-image">
-                  <span class="code">EZ / 22</span><img src="./assets/wd-purple-1tb.png" data-product-image data-asset-id="eyeszone-product-22" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
+                  <span class="code">EZ / 14</span><img src="./assets/tapo-c200.png" data-product-image data-asset-id="eyeszone-product-14" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
                 </div>
 
                 <div class="card-copy">
-                  <h3>HD WD Purple 1 TB</h3>
-                  <p>1 TB · SATA · Videovigilância</p>
-                  <strong class="price">R$ 349,90</strong>
-                </div> </a><button type="button" class="compare compare-toggle" data-compare="22" aria-pressed="false" aria-label="Comparar HD WD Purple 1 TB">
+                  <h3>Câmera Wi-Fi Tapo C200</h3>
+                  <p>Full HD · Movimento pan/tilt</p>
+                  <strong class="price">R$ 219,90</strong>
+                </div> </a><button type="button" class="compare compare-toggle" data-compare="14" aria-pressed="false" aria-label="Comparar Câmera Wi-Fi Tapo C200">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
+              </button>
+            </article>
+
+            <article class="card product-card" data-product-id="17">
+              <a class="card-link" href="produto.html?id=17">
+                <div class="photo product-card-image photo-context">
+                  <span class="code">EZ / 17</span><img src="./assets/intelbras-xas-8000.png" data-product-image data-asset-id="eyeszone-product-17" alt="" loading="lazy" width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span>
+                </div>
+
+                <div class="card-copy">
+                  <h3>Sensor de Abertura XAS 8000</h3>
+                  <p>Portas e janelas · Sem fio</p>
+                  <strong class="price">R$ 179,90</strong>
+                </div> </a><button type="button" class="compare compare-toggle" data-compare="17" aria-pressed="false" aria-label="Comparar Sensor de Abertura XAS 8000">
                 <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span>
               </button>
@@ -520,6 +249,86 @@
               </button>
             </article>
 
+          </div>
+
+          <a class="home-text-link" href="produtos.html?max=300&amp;ordem=price-up">Ver equipamentos até R$ 300,00
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m9 5 7 7-7 7"/></svg></a>
+        </section>
+
+        <section class="home-section home-catalog" id="catalogo" aria-labelledby="home-catalog-title">
+          <div class="home-section-heading">
+            <div>
+              <p class="home-eyebrow">03 / Catálogo</p>
+              <h2 id="home-catalog-title">Seu projeto começa por aqui.</h2>
+            </div>
+
+            <a class="home-text-link" href="produtos.html">Ver os 23 equipamentos
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/></svg></a>
+          </div>
+
+          <div class="home-departments">
+            <a class="home-department" href="categoria.html?categoria=cameras">
+              <span class="home-department-index">01 / 6 equipamentos</span>
+              <img src="./assets/product-1.png" alt="" width="250" height="200" loading="lazy">
+              <h3>Câmeras de segurança</h3>
+              <p>Acompanhe cada ambiente.</p>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/>
+              </svg>
+            </a>
+
+            <a class="home-department" href="categoria.html?categoria=alarmes">
+              <span class="home-department-index">02 / 4 equipamentos</span>
+              <img src="./assets/product-0.png" alt="" width="250" height="200" loading="lazy">
+              <h3>Alarmes e sensores</h3>
+              <p>Perceba o que sai da rotina.</p>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/>
+              </svg>
+            </a>
+
+            <a class="home-department" href="categoria.html?categoria=acesso">
+              <span class="home-department-index">03 / 9 equipamentos</span>
+              <img src="./assets/product-6.png" alt="" width="250" height="200" loading="lazy">
+              <h3>Controle de acesso</h3>
+              <p>Escolha quem pode entrar.</p>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/>
+              </svg>
+            </a>
+
+            <a class="home-department" href="categoria.html?categoria=gravacao">
+              <span class="home-department-index">04 / 4 equipamentos</span>
+              <img src="./assets/intelbras-mhdx-1304.png" alt="" width="250" height="200" loading="lazy">
+              <h3>Gravação e armazenamento</h3>
+              <p>Guarde o que importa.</p>
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+
+        </section>
+
+        <section class="home-advice" aria-labelledby="home-advice-title">
+          <div>
+            <p class="home-eyebrow">Antes de escolher</p>
+            <h2 id="home-advice-title">A conexão certa faz a diferença.</h2>
+          </div>
+
+          <div>
+            <p>
+              Confira o ambiente de instalação, a alimentação e a conexão de cada equipamento. Na página do
+              produto, você encontra a aplicação e a compatibilidade para decidir com mais segurança.
+            </p>
+            <button class="home-text-link" type="button" data-info="instalacao">
+              Orientações de instalação
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m9 5 7 7-7 7"/>
+              </svg>
+            </button>
           </div>
 
         </section>
@@ -555,9 +364,7 @@
       </div>
 
       <div class="comparison-dock-actions">
-        <button type="button" class="plain clear-comparison" data-clear-comparison>Limpar</button><button type="button" id="open-comparison" class="primary button">
-          Comparar produtos
-        </button>
+        <button type="button" class="plain clear-comparison" data-clear-comparison>Limpar</button><button type="button" id="open-comparison" class="primary button">Comparar produtos</button>
       </div>
 
     </aside>

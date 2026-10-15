@@ -1298,32 +1298,92 @@ function bindGallery(root) {
 }
 
 function homePage() {
-  const count = (category) => products.filter((product) => product.category === category).length;
-  const cameras = products.filter(
-    (product) => product.category === 'cameras' && !['1', '2', '3', '9'].includes(product.id));
-  const alarms = products.filter(
-    (product) => product.category === 'alarmes' && !['4', '13'].includes(product.id));
-  const accessIds = [
-    '5',
-    '6',
-    '12',
-    '7',
-    '10',
-    '11',
-    '8',
-    ...products
-      .filter(
-        (product) =>
-          product.category === 'acesso' &&
-          !['5', '6', '12', '7', '10', '11', '8'].includes(product.id))
-      .map((product) => product.id),
-  ];
-  const storage = products.filter((product) => product.category === 'gravacao');
-  return `<div class="store-topline"><h1>Equipamentos de segurança</h1><span>${products.length} produtos · ${categories.length} departamentos</span></div>
-    <section class="shelf cameras">${sectionHeading('01', 'Câmeras de segurança', count('cameras'))}<div class="camera-shelf">${productCard(findProduct('9'), 'feature')}<div class="camera-side"><div class="camera-pair">${['1', '2'].map((id) => productCard(findProduct(id))).join('')}</div>${productCard(findProduct('3'), 'horizontal')}</div></div>${cameras.length ? '<div class="product-grid shelf-additions">' + cameras.map((product) => productCard(product)).join('') + '</div>' : ''}</section>
-    <section class="shelf alarm-shelf">${sectionHeading('02', 'Alarmes e sensores', count('alarmes'))}<div class="alarm-pair">${productCard(findProduct('4'), 'alarm-kit')}${productCard(findProduct('13'), 'sensor')}</div>${alarms.length ? '<div class="product-grid shelf-additions">' + alarms.map((product) => productCard(product)).join('') + '</div>' : ''}</section>
-    <section class="shelf access-shelf">${sectionHeading('03', 'Controle de acesso', count('acesso'))}<div class="access-list">${accessIds.map((id) => productCard(findProduct(id), 'list-card')).join('')}</div></section>
-    <section class="shelf storage-shelf">${sectionHeading('04', 'Gravação e armazenamento', count('gravacao'))}<p class="storage-intro">O gravador reúne as imagens. O HD ou cartão define onde elas ficam. Confira o tipo de câmera e a mídia aceita pelo equipamento.</p><div class="product-grid storage-grid">${storage.map((product) => productCard(product)).join('')}</div></section>`;
+  const featured = findProduct('9');
+  const highlights = ['15', '18', '4', '21'].map(findProduct);
+  const offers = ['14', '17', '23'].map(findProduct);
+  const departmentNotes = {
+    cameras: 'Acompanhe cada ambiente.',
+    alarmes: 'Perceba o que sai da rotina.',
+    acesso: 'Escolha quem pode entrar.',
+    gravacao: 'Guarde o que importa.',
+  };
+
+  return `
+    <nav class="home-shortcuts" aria-label="Seções da página inicial">
+      <span>Bem-vindo à EYESZONE</span>
+      <a href="#destaques">Destaques</a>
+      <a href="#promocoes">Promoções</a>
+      <a href="#catalogo">Catálogo</a>
+    </nav>
+
+    <section class="home-hero" aria-label="Destaque da loja">
+      <div class="home-hero-copy">
+        <p class="home-eyebrow">Seu espaço. Sob seu controle.</p>
+        <h1>Segurança,<br>em foco.</h1>
+        <p class="home-hero-description">Da primeira câmera ao controle de acesso. Encontre os equipamentos para cuidar de perto do seu espaço.</p>
+        <a class="home-hero-link" href="produtos.html">Explorar o catálogo ${icon('chevron')}</a>
+        <span class="home-hero-index" aria-hidden="true">EYESZONE / EQUIPAMENTOS DE SEGURANÇA</span>
+      </div>
+
+      <div class="home-featured-product" data-product-id="${featured.id}">
+        <div class="home-featured-top"><span>Em foco</span><span>EZ / ${featured.id.padStart(2, '0')}</span></div>
+        <a class="home-featured-link" href="produto.html?id=${featured.id}">
+          <div class="home-featured-image photo">
+            <img src="${imageUrl(featured)}" data-product-image alt="" width="894" height="445" fetchpriority="high" loading="eager">
+            <span class="image-fallback" hidden>Imagem indisponível</span>
+          </div>
+
+          <div class="home-featured-caption">
+            <div><p>${escapeHTML(featured.short)}</p><h2>${escapeHTML(featured.name)}</h2></div>
+            <div class="home-featured-price"><strong class="price">${money(featured.price)}</strong><span>Conhecer o kit ${icon('chevron')}</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-section" id="destaques" aria-labelledby="highlights-title">
+      <div class="home-section-heading">
+        <div><p class="home-eyebrow">01 / Destaques</p><h2 id="highlights-title">Um olhar para cada necessidade.</h2></div>
+        <p>Câmeras, alarmes, fechaduras e gravação.<br>Conheça a seleção da EYESZONE.</p>
+      </div>
+
+      <div class="home-highlights">${highlights.map((product) => productCard(product)).join('\n')}</div>
+    </section>
+
+    <section class="home-offers home-section" id="promocoes" aria-labelledby="offers-title">
+      <div class="home-section-heading">
+        <div><p class="home-eyebrow">02 / Promoções</p><h2 id="offers-title">Pequenas escolhas.<br>Mais proteção.</h2></div>
+        <div class="home-offer-intro"><span class="home-budget">Seleção até ${money(300)}</span><p>Uma câmera Wi-Fi, um sensor ou mais espaço para as gravações. Comece pelo que você precisa.</p></div>
+      </div>
+
+      <div class="home-offer-grid">${offers.map((product) => productCard(product)).join('\n')}</div>
+
+      <a class="home-text-link" href="produtos.html?max=300&amp;ordem=price-up">Ver equipamentos até ${money(300)} ${icon('chevron')}</a>
+    </section>
+
+    <section class="home-section home-catalog" id="catalogo" aria-labelledby="home-catalog-title">
+      <div class="home-section-heading">
+        <div><p class="home-eyebrow">03 / Catálogo</p><h2 id="home-catalog-title">Seu projeto começa por aqui.</h2></div>
+        <a class="home-text-link" href="produtos.html">Ver os ${products.length} equipamentos ${icon('chevron')}</a>
+      </div>
+
+      <div class="home-departments">
+        ${categories.map((category, index) => `
+          <a class="home-department" href="categoria.html?categoria=${category.id}">
+            <span class="home-department-index">0${index + 1} / ${products.filter((product) => product.category === category.id).length} equipamentos</span>
+            <img src="./assets/${category.image}" alt="" width="250" height="200" loading="lazy">
+            <h3>${escapeHTML(category.name)}</h3>
+            <p>${departmentNotes[category.id]}</p>
+            ${icon('chevron')}
+          </a>`).join('\n')}
+      </div>
+    </section>
+
+    <section class="home-advice" aria-labelledby="home-advice-title">
+      <div><p class="home-eyebrow">Antes de escolher</p><h2 id="home-advice-title">A conexão certa faz a diferença.</h2></div>
+      <div><p>Confira o ambiente de instalação, a alimentação e a conexão de cada equipamento. Na página do produto, você encontra a aplicação e a compatibilidade para decidir com mais segurança.</p><button class="home-text-link" type="button" data-info="instalacao">Orientações de instalação ${icon('chevron')}</button></div>
+    </section>
+  `;
 }
 
 const pageName = 'index';
@@ -1334,7 +1394,7 @@ function renderPage() {
 
   document.title =
     (pageName === 'index'
-      ? 'Segurança sob seu controle'
+      ? 'Segurança, em foco.'
       : main.querySelector('h1')?.textContent || 'Segurança sob seu controle') + ' | EYESZONE';
 }
 function departmentNavigation() {
