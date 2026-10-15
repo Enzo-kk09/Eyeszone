@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#17201c">
+    <meta name="description" content="Câmeras, alarmes, acesso e gravação. Encontre a tecnologia certa para proteger sua casa e seu negócio na EYESZONE.">
+    <title>Equipamentos por departamento | EYESZONE</title>
+    <link rel="icon" type="image/png" href="./assets/logo-eyeszone.png">
+    <link rel="preload" href="./assets/Barlow-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="./assets/BarlowCondensed-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./js/categoria.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Pular para o conteúdo</a>
+    <header class="site-header masthead">
+      <div class="header-inner">
+        <a class="brand" href="index.html" aria-label="EYESZONE, início"><img class="brand-logo" src="./assets/logo-eyeszone.png" data-asset-id="eyeszone-logo-original" alt="EYESZONE" width="525" height="476"></a>
+        <span class="masthead-label">EQUIPAMENTOS<br>DE SEGURANÇA</span>
+        <div class="search-area"><form id="site-search" class="search search-form" role="search" action="busca.html" method="get">
+          <span data-icon="search"></span>
+          <input name="q" type="search" role="combobox" aria-label="Buscar produtos" placeholder="Buscar câmera, alarme, fechadura…" maxlength="120" autocomplete="off" enterkeyhint="search" aria-autocomplete="list" aria-expanded="false" aria-controls="search-suggestions">
+          <button type="submit" aria-label="Buscar produtos"><span data-icon="chevron"></span></button>
+        </form><div id="search-panel" class="search-panel" hidden><p id="search-status" class="search-status" role="status" aria-live="polite"></p><ul id="search-suggestions" role="listbox" aria-label="Sugestões de produtos"></ul><button type="submit" form="site-search" class="search-all plain">Ver todos os resultados</button></div></div>
+        <a class="cart-link header-cart" href="carrinho.html"><span data-icon="cart"></span><span class="cart-text">Carrinho</span><b id="cart-count" class="cart-count" aria-label="0 itens">0</b></a>
+      </div>
+      <div class="mobile-departments"><button class="header-menu" id="category-menu" type="button" aria-controls="category-navigation" aria-expanded="false"><span data-icon="menu"></span><span>Departamentos</span><span data-icon="chevron"></span></button></div>
+    </header>
+    <div class="store" id="store-layout">
+      <aside class="rail department-rail"><p class="overline">DEPARTAMENTOS</p>
+        <nav id="category-navigation" class="main-nav" aria-label="Departamentos da loja">
+          <a href="categoria.html?categoria=cameras" data-nav="cameras"><span class="department-number" aria-hidden="true">01</span><strong>Câmeras de segurança</strong><small>6 equipamentos</small><span data-icon="chevron"></span></a>
+          <a href="categoria.html?categoria=alarmes" data-nav="alarmes"><span class="department-number" aria-hidden="true">02</span><strong>Alarmes e sensores</strong><small>4 equipamentos</small><span data-icon="chevron"></span></a>
+          <a href="categoria.html?categoria=acesso" data-nav="acesso"><span class="department-number" aria-hidden="true">03</span><strong>Controle de acesso</strong><small>9 equipamentos</small><span data-icon="chevron"></span></a>
+          <a href="categoria.html?categoria=gravacao" data-nav="gravacao"><span class="department-number" aria-hidden="true">04</span><strong>Gravação e armazenamento</strong><small>4 equipamentos</small><span data-icon="chevron"></span></a>
+          <a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>23</b></a>
+        </nav>
+        <div class="rail-help"><p>Antes de instalar</p><span>Confira alimentação, conexão e compatibilidade na página do equipamento.</span><button class="plain" type="button" data-info="instalacao">Orientações de instalação</button></div>
+      </aside>
+      <main id="main" class="main-content" tabindex="-1">
+<nav class="breadcrumbs" aria-label="Caminho da página"><a href="index.html">Início</a><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg><span aria-current="page">Câmeras de segurança</span></nav><div class="page-title page-heading catalog-heading"><div><h1>Câmeras de segurança</h1><p>Fotografia, aplicação e preço para escolher com clareza.</p></div></div>
+    <div class="catalog-layout"><div class="catalog-results"><div class="catalog-bar results-toolbar"><p><b>6</b> equipamentos</p><label><span>Ordenar por</span><select id="catalog-sort" aria-label="Ordenar produtos"><option value="default">Seleção da loja</option><option value="price-up" >Menor preço</option><option value="price-down" >Maior preço</option><option value="name" >Nome do produto</option></select></label></div>
+    <details class="filters filter-box" open><summary><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><strong>Filtros</strong><svg class="icon filter-toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></summary><form id="catalog-filters" class="filter-fields"><label>Departamento<select name="category" aria-label="Departamento"><option value="" >Todos os departamentos (23)</option><option value="cameras" selected>Câmeras de segurança (6)</option><option value="alarmes" >Alarmes e sensores (4)</option><option value="acesso" >Controle de acesso (9)</option><option value="gravacao" >Gravação e armazenamento (4)</option></select></label><label>Preço máximo (R$)<input name="maxPrice" type="number" min="0" step="0.01" inputmode="decimal" value="" placeholder="Qualquer valor"></label><button class="primary button" type="submit">Aplicar filtros</button><button class="plain filter-clear" type="button" id="clear-filters">Limpar</button></form></details>
+
+    <div class="product-grid catalog-grid"><article class="card product-card " data-product-id="1">
+    <a class="card-link" href="produto.html?id=1">
+      <div class="photo product-card-image "><span class="code">EZ / 01</span><img src="./assets/product-1.png" data-product-image data-asset-id="eyeszone-product-1" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Câmera Bullet Essential</h3><p>Formato bullet · Suporte de fixação</p><strong class="price">R$ 189,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="1" aria-pressed="false" aria-label="Comparar Câmera Bullet Essential"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article><article class="card product-card " data-product-id="2">
+    <a class="card-link" href="produto.html?id=2">
+      <div class="photo product-card-image "><span class="code">EZ / 02</span><img src="./assets/product-2.png" data-product-image data-asset-id="eyeszone-product-2" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Câmera Dupla Vision</h3><p>Duas lentes · Design articulado</p><strong class="price">R$ 349,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="2" aria-pressed="false" aria-label="Comparar Câmera Dupla Vision"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article><article class="card product-card " data-product-id="3">
+    <a class="card-link" href="produto.html?id=3">
+      <div class="photo product-card-image "><span class="code">EZ / 03</span><img src="./assets/product-5.png" data-product-image data-asset-id="eyeszone-product-3" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Câmera Dome Compact</h3><p>Formato dome · Acabamento discreto</p><strong class="price">R$ 159,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="3" aria-pressed="false" aria-label="Comparar Câmera Dome Compact"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article><article class="card product-card " data-product-id="9">
+    <a class="card-link" href="produto.html?id=9">
+      <div class="photo product-card-image "><span class="code">EZ / 09</span><img src="./assets/product-kit-cameras.png" data-product-image data-asset-id="eyeszone-product-9" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Kit Câmeras Duo Base</h3><p>Duas câmeras · Base central</p><strong class="price">R$ 899,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="9" aria-pressed="false" aria-label="Comparar Kit Câmeras Duo Base"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article><article class="card product-card " data-product-id="14">
+    <a class="card-link" href="produto.html?id=14">
+      <div class="photo product-card-image "><span class="code">EZ / 14</span><img src="./assets/tapo-c200.jpg" data-product-image data-asset-id="eyeszone-product-14" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Câmera Wi-Fi Tapo C200</h3><p>Full HD · Movimento pan/tilt</p><strong class="price">R$ 219,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="14" aria-pressed="false" aria-label="Comparar Câmera Wi-Fi Tapo C200"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article><article class="card product-card " data-product-id="15">
+    <a class="card-link" href="produto.html?id=15">
+      <div class="photo product-card-image "><span class="code">EZ / 15</span><img src="./assets/tapo-c310.jpg" data-product-image data-asset-id="eyeszone-product-15" alt="" loading="lazy"  width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="card-copy"><h3>Câmera Externa Tapo C310</h3><p>3 MP · Wi-Fi ou Ethernet · IP66</p><strong class="price">R$ 379,90</strong></div>
+    </a><button type="button" class="compare compare-toggle" data-compare="15" aria-pressed="false" aria-label="Comparar Câmera Externa Tapo C310"><svg class="icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4v16M16 4v16M4 8l4-4 4 4M12 16l4 4 4-4"/></svg><span>Comparar</span></button>
+  </article></div></div></div>
+      </main>
+    </div>
+    <footer class="footer site-footer"><div class="footer-inner">
+      <a class="brand" href="index.html" aria-label="EYESZONE, início"><img class="brand-logo" src="./assets/logo-eyeszone.png" data-asset-id="eyeszone-logo-original" alt="EYESZONE" width="525" height="476" loading="lazy"></a>
+      <div class="footer-context"><strong>Câmeras, alarmes, acesso e gravação.</strong><p>Equipamentos para sua casa e seu negócio.</p><small>© <span id="year">2026</span> EYESZONE</small></div>
+      <div><strong>Orientações</strong><button type="button" data-info="escolha">Como escolher</button><button type="button" data-info="instalacao">Instalação e compatibilidade</button><button type="button" data-info="entrega">Entrega e pagamento</button></div>
+      <div><strong>A loja</strong><button type="button" data-info="sobre">Sobre a EYESZONE</button><a class="footer-order" href="pedido.html">Acompanhar pedido</a><button type="button" data-info="contato">Contato</button><button type="button" data-info="privacidade">Privacidade</button></div>
+    </div></footer>
+    <aside id="comparison-dock" class="comparison-dock" aria-label="Produtos para comparar" hidden><div class="comparison-dock-copy"><strong id="comparison-count"></strong><span id="comparison-hint"></span></div><div class="comparison-dock-actions"><button type="button" class="plain clear-comparison" data-clear-comparison>Limpar</button><button type="button" id="open-comparison" class="primary button">Comparar produtos</button></div></aside>
+    <div id="toast" class="toast notice" role="status" aria-live="polite" hidden></div>
+    <dialog id="image-dialog" class="image-dialog gallery-modal" aria-labelledby="image-dialog-title"><div class="dialog-head modal-head"><h2 id="image-dialog-title"></h2><button type="button" class="icon-button" data-close-image aria-label="Fechar imagem"><span data-icon="close"></span></button></div><div class="image-viewer" tabindex="0" role="region" aria-label="Imagem ampliada do produto"><img id="expanded-product-image" src="./assets/product-1.png" alt="Câmera Bullet Essential" width="1000" height="800"></div><div class="image-viewer-tools modal-tools"><span>Imagem do equipamento</span><button type="button" id="image-zoom" class="outline button-outline" aria-pressed="false">Ampliar 2×</button></div></dialog>
+    <dialog id="info-dialog" class="info-dialog info-modal" aria-labelledby="dialog-title"><div class="dialog-head modal-head"><h2 id="dialog-title"></h2><button type="button" class="icon-button" data-close-dialog aria-label="Fechar"><span data-icon="close"></span></button></div><div id="dialog-body"></div></dialog>
+  </body>
+</html>
