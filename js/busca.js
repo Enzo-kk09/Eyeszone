@@ -1,13 +1,10 @@
-// busca.html ↔ js/busca.js
-// JavaScript próprio desta página, sem imports de outros arquivos JS.
-// Catálogo local desta página.
 const { categories, products } = {"categories":[{"id":"cameras","name":"Câmeras de segurança","short":"Câmeras","description":"Veja seu ambiente com mais clareza.","image":"product-1.png","icon":"camera"},{"id":"alarmes","name":"Alarmes e sensores","short":"Alarmes","description":"Proteção para seus pontos de entrada.","image":"product-0.png","icon":"bell"},{"id":"acesso","name":"Controle de acesso","short":"Controle de acesso","description":"Mais controle sobre quem entra.","image":"product-6.png","icon":"lock"},{"id":"gravacao","name":"Gravação e armazenamento","short":"Gravação","description":"Gravadores e memória para guardar as imagens.","image":"intelbras-mhdx-1304.jpg","icon":"receipt"}],"products":[{"id":"1","image":"product-1.png","name":"Câmera Bullet Essential","category":"cameras","price":189.9,"description":"Câmera com formato bullet e suporte de fixação. Uma opção compacta para integrar ao seu sistema de monitoramento.","short":"Formato bullet · Suporte de fixação","application":"Entradas, corredores e áreas de circulação.","features":["Corpo compacto com suporte de fixação","Formato bullet para instalação direcionada","Integração ao projeto de monitoramento"],"compatibility":"Verifique a resolução, alimentação, padrão de vídeo e o gravador compatível. Para áreas externas, confirme a proteção contra água e poeira."},{"id":"2","image":"product-2.png","name":"Câmera Dupla Vision","category":"cameras","price":349.9,"description":"Design com duas lentes, antenas e suporte de fixação. Pensada para projetos que precisam acompanhar diferentes pontos do ambiente.","short":"Duas lentes · Design articulado","application":"Ambientes que precisam de diferentes ângulos de monitoramento.","features":["Conjunto com duas lentes","Antenas integradas ao equipamento","Suporte para instalação na parede"],"compatibility":"Confirme o tipo de conexão, aplicativo, alimentação, armazenamento e se há movimentação motorizada das lentes."},{"id":"3","image":"product-5.png","name":"Câmera Dome Compact","category":"cameras","price":159.9,"description":"Câmera em formato dome com acabamento discreto. Combina com espaços que precisam de monitoramento sem interferir no visual do ambiente.","short":"Formato dome · Acabamento discreto","application":"Lojas, recepções e ambientes internos.","features":["Design dome de perfil compacto","Acabamento branco","Instalação integrada ao ambiente"],"compatibility":"Confirme a resolução, o ângulo de visão, a forma de instalação e a compatibilidade com seu gravador."},{"id":"4","image":"product-0.png","name":"Kit Alarme Protect","category":"alarmes","price":429.9,"description":"Conjunto de proteção com central, sensores e controles. Reúne componentes para organizar a segurança dos pontos de entrada.","short":"Central · Sensores · Controles","application":"Pontos de entrada de residências e pequenos comércios.","features":["Central de alarme","Sensores e controles no conjunto","Componentes para um sistema de alerta"],"compatibility":"Confirme a composição exata do kit, o alcance dos sensores, as opções de expansão, a alimentação e a conectividade."},{"id":"5","image":"product-6.png","name":"Fechadura Digital Handle","category":"acesso","price":599.9,"description":"Fechadura com maçaneta e painel numérico. Um design moderno para organizar o acesso em portas compatíveis.","short":"Painel numérico · Maçaneta integrada","application":"Portas de entrada compatíveis com o modelo.","features":["Painel com teclado numérico","Maçaneta integrada","Acabamento em preto e prata"],"compatibility":"Verifique a espessura e o material da porta, o sentido de abertura, a alimentação e os métodos de desbloqueio."},{"id":"6","image":"product-3.png","name":"Fechadura Digital Gate","category":"acesso","price":469.9,"description":"Modelo de sobrepor com teclado numérico e corpo metálico. Uma solução para projetos de acesso que exigem montagem compatível.","short":"Modelo de sobrepor · Teclado numérico","application":"Estruturas e portas compatíveis com montagem de sobrepor.","features":["Teclado numérico frontal","Corpo com acabamento metálico","Formato de sobrepor"],"compatibility":"Confirme as dimensões, o material da porta, a alimentação e a resistência ao tempo antes de instalar."},{"id":"7","image":"product-4.png","name":"Videoporteiro Connect","category":"acesso","price":299.9,"description":"Painel de entrada com câmera e botão de chamada. Ajuda a compor um sistema de identificação de visitantes.","short":"Câmera integrada · Botão de chamada","application":"Entradas residenciais e comerciais.","features":["Câmera integrada ao painel","Botão de chamada","Formato compacto para a entrada"],"compatibility":"Confirme a alimentação, o monitor ou aplicativo compatível, a instalação e os recursos de comunicação."},{"id":"8","image":"product-7.png","name":"Campainha Duo","category":"acesso","price":119.9,"description":"Conjunto com botão de chamada e receptor. Uma opção compacta para avisar quando alguém chega.","short":"Botão de chamada · Receptor","application":"Sinalização da chegada de visitantes.","features":["Botão de chamada","Receptor separado","Design compacto em preto"],"compatibility":"Confirme o alcance, a alimentação, as opções de volume e a compatibilidade com receptores adicionais."},{"id":"9","image":"product-kit-cameras.png","name":"Kit Câmeras Duo Base","category":"cameras","price":899.9,"description":"Conjunto com duas câmeras compactas e uma base central. Reúne os equipamentos para compor o monitoramento de diferentes pontos do seu espaço.","short":"Duas câmeras · Base central","application":"Monitoramento de dois pontos de uma residência ou pequeno negócio.","features":["Conjunto com duas câmeras","Base central no kit","Design compacto com acabamento branco"],"compatibility":"Confirme o modelo exato, a alimentação, o aplicativo compatível, o tipo de conexão e as opções de armazenamento. Verifique também as condições de instalação de cada câmera."},{"id":"10","image":"product-leitor-portatil.png","name":"Leitor Biométrico Touch","category":"acesso","price":219.9,"description":"Leitor compacto com área de leitura biométrica e visor. Uma opção para integrar a projetos de identificação e controle de acesso.","short":"Leitura biométrica · Visor frontal","application":"Projetos de identificação e autenticação com biometria.","features":["Área de leitura biométrica","Visor frontal integrado","Formato compacto com controles físicos"],"compatibility":"Confirme o modelo, a interface de conexão, o software compatível, a alimentação e os recursos de cadastro. A integração depende do sistema de controle de acesso."},{"id":"11","image":"product-leitor-mesa.png","name":"Leitor Biométrico de Mesa","category":"acesso","price":139.9,"description":"Leitor biométrico com formato de mesa e cabo de conexão. Um equipamento compacto para integrar a estações de identificação.","short":"Formato de mesa · Cabo de conexão","application":"Estações de identificação com sistema biométrico compatível.","features":["Área de leitura de impressão digital","Corpo compacto com acabamento preto","Cabo de conexão integrado"],"compatibility":"Verifique o tipo de conexão, os drivers, os sistemas operacionais e o software de cadastro compatíveis. Confirme se o equipamento atende à integração desejada."},{"id":"12","image":"product-videoporteiro-monitor.png","name":"Kit Videoporteiro com Monitor","category":"acesso","price":549.9,"description":"Conjunto com monitor interno, telefone e painel externo. Reúne os componentes para compor a comunicação e identificação na entrada.","short":"Monitor interno · Painel externo","application":"Identificação e comunicação com visitantes na entrada.","features":["Monitor interno com visor","Telefone integrado à unidade interna","Painel externo com botão de chamada"],"compatibility":"Confirme o modelo, a alimentação, o cabeamento, a distância de instalação e a compatibilidade com fechaduras. Verifique as condições de uso do painel externo."},{"id":"13","image":"product-sensor-movimento.png","name":"Sensor de Movimento Guard","category":"alarmes","price":59.9,"description":"Sensor de movimento com suporte de fixação. Um componente para ampliar a proteção de ambientes com uma central de alarme compatível.","short":"Sensor de movimento · Suporte","application":"Detecção de movimento em ambientes compatíveis com o sensor.","features":["Sensor de movimento","Suporte de fixação","Formato compacto com acabamento branco"],"compatibility":"Confirme a tecnologia de detecção, o alcance, a alimentação e a compatibilidade com a central de alarme. Verifique se o modelo é adequado ao ambiente e à presença de animais."},{"id":"14","name":"Câmera Wi-Fi Tapo C200","image":"tapo-c200.png","category":"cameras","price":219.9,"description":"Câmera interna Full HD com movimento horizontal e vertical controlado pelo aplicativo Tapo. Permite acompanhar o ambiente e conversar pelo áudio bidirecional.","short":"Full HD · Movimento pan/tilt","application":"Monitoramento de salas, recepções e outros ambientes internos.","features":["Vídeo em 1080p Full HD","Controle pan/tilt pelo aplicativo","Microfone e alto-falante para áudio bidirecional","Gravação local em cartão microSD"],"compatibility":"Utilize em ambiente interno com alimentação elétrica e rede Wi-Fi de 2,4 GHz. Confira a versão de hardware e o limite de cartão microSD no manual. O serviço de gravação em nuvem é separado.","source":{"manufacturer":"TP-Link","url":"https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c200/","imageUrl":"https://static.tp-link.com/upload/image-line/IMG_01_large_20231004135406q.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"TP-Link","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"15","name":"Câmera Externa Tapo C310","image":"tapo-c310.png","category":"cameras","price":379.9,"description":"Câmera externa de 3 MP com conexão por Wi-Fi ou Ethernet. A proteção IP66 ajuda a compor o monitoramento de entradas e áreas expostas ao tempo.","short":"3 MP · Wi-Fi ou Ethernet · IP66","application":"Entradas, garagens e áreas externas com ponto de alimentação.","features":["Resolução de 3 MP","Conexão de rede cabeada ou Wi-Fi","Proteção IP66 contra poeira e água","Áudio bidirecional e detecção de movimento"],"compatibility":"Necessita de alimentação e rede Wi-Fi de 2,4 GHz ou cabo Ethernet. Proteja as conexões conforme o manual e confirme a versão de hardware para escolher o cartão microSD.","source":{"manufacturer":"TP-Link","url":"https://www.tp-link.com/br/home-networking/cloud-camera/tapo-c310/","imageUrl":"https://static.tp-link.com/upload/image-line/Tapo_C310%EF%80%A2Tapo_C310P2_EU_2.20_overview_01_large_20250915185657j.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"TP-Link","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"16","name":"Sensor com Câmera IVP 8000 PET CAM","image":"intelbras-ivp-8000-pet-cam.png","photoStyle":"context","category":"alarmes","price":379.9,"description":"Sensor infravermelho sem fio com câmera integrada para fotoverificação de disparos. Une a detecção de movimento a uma imagem do ambiente no sistema de alarme compatível.","short":"Sem fio · Fotoverificação","application":"Verificação visual de alertas de movimento em ambientes internos.","features":["Câmera integrada ao sensor","Fotoverificação do disparo de alarme","Comunicação sem fio bidirecional","Supervisão da comunicação do sensor"],"compatibility":"Integra o sistema de alarme Intelbras 8000. Confirme a central, a versão de firmware e o aplicativo compatíveis; siga o manual para posicionamento e ajuste da função PET.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/sensor-infravermelho-sem-fio-com-camera-ivp-8000-pet-cam","imageUrl":"https://backend.intelbras.com/sites/default/files/2020-10/imagem-capa-ivp-8000-pet-cam.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"17","name":"Sensor de Abertura XAS 8000","image":"intelbras-xas-8000.png","photoStyle":"context","category":"alarmes","price":179.9,"description":"Sensor magnético sem fio que detecta a abertura de portas e janelas. Permite ampliar a proteção dos pontos de entrada com uma central compatível.","short":"Portas e janelas · Sem fio","application":"Detecção de abertura em portas e janelas do ambiente protegido.","features":["Detecção de abertura por contato magnético","Comunicação sem fio bidirecional","Supervisão do sistema sem fio","Alimentação por bateria"],"compatibility":"Verifique a compatibilidade com a central Intelbras do sistema 8000. Respeite o alinhamento entre sensor e ímã e a distância de montagem indicada no manual.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/sensor-de-abertura-magnetico-sem-fio-xas-8000","imageUrl":"https://backend.intelbras.com/sites/default/files/2020-07/2657-A-Novo-Flyer-Digital-XAS-8000_02.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"18","name":"Fechadura Digital Intelbras FR 101","image":"intelbras-fr-101.png","category":"acesso","price":499.9,"description":"Fechadura digital de sobrepor com abertura por senha. É indicada para portas em ambientes protegidos de sol e chuva, sem substituir a maçaneta existente.","short":"Abertura por senha · Sobrepor","application":"Portas de residências e escritórios protegidas das intempéries.","features":["Abertura por senha no painel digital","Instalação de sobrepor","Travamento automático configurável","Alimentação de emergência por bateria de 9 V"],"compatibility":"Confira as dimensões, o material da porta e o sentido de abertura no gabarito de instalação. Não use em locais expostos ao sol, chuva ou umidade. A maçaneta da porta é mantida.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/fechadura-digital-de-sobrepor-fr-101","imageUrl":"https://backend.intelbras.com/sites/default/files/integration/fr_101_front_desligado_0.png","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"19","name":"Videoporteiro Intelbras IVR 1010","image":"intelbras-ivr-1010.png","category":"acesso","price":699.9,"description":"Conjunto de videoporteiro com unidade interna e painel externo. Permite ver e atender as visitas a partir do ambiente interno.","short":"Unidade interna · Painel externo","application":"Identificação e atendimento de visitantes na entrada de casas e pequenos negócios.","features":["Conjunto com unidade interna e painel externo","Visualização do visitante","Comunicação com a entrada","Sistema com instalação cabeada"],"compatibility":"Confira o cabeamento, a alimentação e as distâncias de instalação no manual do IVR 1010. Para acionar uma fechadura, verifique os modelos e ligações compatíveis.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/videoporteiro-ivr-1010","imageUrl":"https://backend.intelbras.com/sites/default/files/integration/ivr_1010_pack_persp_esq_com_foto.png","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"20","name":"DVR Intelbras MHDX 1304","image":"intelbras-mhdx-1304.png","photoStyle":"context","category":"gravacao","price":499.9,"description":"Gravador Multi HD com quatro canais e modo de operação Full HD. Centraliza o monitoramento de câmeras compatíveis e oferece detecção de pessoas e veículos.","short":"4 canais · Multi HD · Full HD","application":"Gravação e visualização de sistemas de monitoramento com câmeras compatíveis.","features":["Quatro canais de vídeo","Modo de operação Full HD","Compatibilidade com cinco tecnologias de vídeo","Detecção inteligente de pessoas e veículos"],"compatibility":"Confirme o padrão de vídeo e a resolução de cada câmera, o modo de operação e as mídias de armazenamento homologadas. O HD ou SSD deve ser escolhido separadamente para o projeto.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/gravador-de-video-multi-hd-com-4-canais-mhdx-1304","imageUrl":"https://backend.intelbras.com/sites/default/files/2024-05/gravador-de-video-multi-hd-com-4-canais-mhdx-1304.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"21","name":"NVR Intelbras NVD 1408 P","image":"intelbras-nvd-1408-p.png","photoStyle":"context","category":"gravacao","price":1299.9,"description":"Gravador de vídeo em rede com oito canais, suporte a 4K e compressão H.265+. Reúne as imagens de câmeras IP compatíveis em um sistema central de gravação.","short":"8 canais · 4K · H.265+","application":"Centralização e armazenamento das imagens de um sistema de câmeras IP.","features":["Oito canais para câmeras IP","Suporte a resolução 4K","Compressão de vídeo H.265+","Recursos de criptografia de áudio e vídeo"],"compatibility":"Verifique os protocolos das câmeras, a largura de banda, a resolução por canal e o HD homologado. Dimensione a rede e confirme as especificações das conexões da versão NVD 1408 P.","source":{"manufacturer":"Intelbras","url":"https://www.intelbras.com/pt-br/gravador-digital-de-video-nvr-nvd-1408-p","imageUrl":"https://backend.intelbras.com/sites/default/files/2021-07/gravador-digital-de-video-nvr-nvd-1408-p.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Intelbras","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"22","name":"HD WD Purple 1 TB","image":"wd-purple-1tb.png","category":"gravacao","price":349.9,"description":"Disco rígido da linha WD Purple destinado a sistemas de videovigilância. A capacidade de 1 TB oferece armazenamento local para gravadores compatíveis.","short":"1 TB · SATA · Videovigilância","application":"Armazenamento das gravações em DVRs e NVRs compatíveis.","features":["Capacidade de 1 TB","Modelo WD11PURZ","Interface SATA e formato de 3,5 polegadas","Linha dedicada à videovigilância"],"compatibility":"Confirme a homologação do modelo WD11PURZ no seu gravador e a capacidade máxima aceita. O tempo de retenção varia conforme o número de câmeras, a resolução e a taxa de gravação.","source":{"manufacturer":"Western Digital","url":"https://www.westerndigital.com/en-ca/products/internal-drives/wd-purple-sata-hdd?sku=WD11PURZ","imageUrl":"https://www.westerndigital.com/content/dam/store/en-us/assets/products/internal-storage/wd-purple-sata-hdd/gallery/wd-purple-surveillance-hard-drive-1tb.png","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Western Digital","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}},{"id":"23","name":"microSD Kingston High Endurance 128 GB","image":"kingston-high-endurance.png","photoStyle":"memory","category":"gravacao","price":119.9,"description":"Cartão microSD de alta resistência desenvolvido para aplicações de gravação contínua. Armazena localmente o vídeo de câmeras com slot microSD compatível.","short":"128 GB · Gravação contínua","application":"Gravação local em câmeras de segurança e outros equipamentos compatíveis.","features":["Capacidade de 128 GB","Linha High Endurance para gravação intensa","Classe UHS-I U1, C10 e A1","Leitura de até 95 MB/s e gravação de até 45 MB/s"],"compatibility":"O equipamento deve aceitar cartões microSDXC de 128 GB. Confira a classe de velocidade exigida e formate o cartão conforme as orientações da câmera. Não substitui o HD interno de um DVR.","source":{"manufacturer":"Kingston","url":"https://www.kingston.com/br/memory-cards/high-endurance-microsd-card","imageUrl":"https://www.alternate.fr/p/1200x630/i/Kingston_High_Endurance_128_GB_microSDXC__Carte_m_moire%40%40imht26_32.jpg","checkedAt":"2026-10-14","priceType":"example","imageCredit":"Kingston / ALTERNATE","imageRights":"Imagem publicada pelo fabricante. A fonte não estabelece, por si só, autorização de uso comercial."}}]};
 const findProduct = id => products.find(product => product.id === String(id));
 const findCategory = id => categories.find(category => category.id === id);
 const imageUrl = product => './assets/' + product.image;
 
-// Ícones
-// Ícones de interface em SVG; nenhum recurso externo é necessário.
+
+
 const paths = {
   shield: '<path d="M12 3 20 6v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/>',
   search: '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
@@ -40,7 +37,7 @@ function hydrateIcons(root = document) {
 }
 
 
-// Formatação, quantidade e avisos
+
 const money = value => Number(value).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 const normalize = value => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -118,10 +115,10 @@ function updateButtons(input) {
 }
 
 
-// Armazenamento e continuidade entre páginas
-// Carrinho/comparação: localStorage. Pedido: sessão da aba.
-// Quando Storage é bloqueado, window.name transporta o estado entre os HTMLs
-// desta mesma origem, sem dados de cartão, e-mail ou endereço completo.
+
+
+
+
 const tabPrefix = 'EYESZONE_TAB_V1:';
 function tabState() {
   try {
@@ -137,7 +134,7 @@ function writeTab(key, value) {
     const state = tabState();
     state[key] = value;
     window.name = tabPrefix + JSON.stringify(state);
-  } catch { /* A página atual continua utilizável. */ }
+  } catch {  }
 }
 function readStored(key, fallback = []) {
   try {
@@ -166,7 +163,7 @@ function writeSession(key, value) {
 }
 
 
-// Carrinho e pedido local
+
 const cartKey = 'eyeszone.cart.v1';
 function validCart(value) {
   if (!Array.isArray(value)) return [];
@@ -241,7 +238,7 @@ function createOrder(details) {
 }
 
 
-// Seleção para comparação
+
 const key = 'eyeszone.compare.v1';
 function validComparison(value) {
   return Array.isArray(value) ? [...new Set(value.filter(id => typeof id === 'string' && findProduct(id)))].slice(0, 3) : [];
@@ -299,7 +296,7 @@ function bindComparisonUI(root, onPageChange) {
 }
 
 
-// Cards e resumo
+
 
 function productCard(product, variant = '') {
   return `<article class="card product-card ${variant}" data-product-id="${product.id}">
@@ -310,7 +307,7 @@ function productCard(product, variant = '') {
   </article>`;
 }
 function sectionHeading(number, title, count = '') {
-  return `<div class="section-head"><div class="heading-title"><img src="./assets/department-bracket.svg" data-asset-id="eyeszone-department-bracket" alt="" width="28" height="28">${number ? `<span class="department-number" aria-hidden="true">${number}</span>` : ''}<h2>${escapeHTML(title)}</h2></div>${count ? `<span class="result-count">${count} equipamentos</span>` : ''}</div>`;
+  return `<div class="section-head"><div class="heading-title"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true" data-asset-id="eyeszone-department-bracket"><path d="M3 11V3h8M17 25h8v-8" stroke="#116454" stroke-width="2"/><path d="m10 18 8-8" stroke="#116454" stroke-width="2"/></svg>${number ? `<span class="department-number" aria-hidden="true">${number}</span>` : ''}<h2>${escapeHTML(title)}</h2></div>${count ? `<span class="result-count">${count} equipamentos</span>` : ''}</div>`;
 }
 function categoryCard(category, index = 0) {
   const count = products.filter(p => p.category === category.id).length;
@@ -329,7 +326,7 @@ function summary({ checkout = false } = {}) {
 }
 
 
-// Catálogo e filtros
+
 
 function filteredProducts({ category, query = '', maxPrice = '', sort = 'default' }) {
   const terms = normalize(query).trim().split(/\s+/).filter(Boolean);
@@ -356,7 +353,7 @@ function catalogPage(options) {
 }
 
 
-// Busca do cabeçalho
+
 function searchSuggestions(query) {
   const term = normalize(query).trim();
   if (term.length < 2) return [];
@@ -435,7 +432,7 @@ function bindSearch(root) {
 }
 
 
-// Informações do rodapé
+
 const content = {
   escolha: {
     title: 'Como escolher sua solução',
@@ -485,8 +482,8 @@ function bindInfoDialogs() {
 }
 
 
-// Menu e filtros no celular
-// Mantém a navegação e os filtros coerentes ao redimensionar ou girar a tela.
+
+
 function bindResponsiveUI(root, media) {
   const button = root.querySelector('#category-menu');
   const navigation = root.querySelector('#category-navigation');
@@ -526,7 +523,7 @@ function bindResponsiveUI(root, media) {
 }
 
 
-// Galeria
+
 function bindGallery(root) {
   const dialog = root.querySelector('#image-dialog');
   const image = root.querySelector('#expanded-product-image');
@@ -567,7 +564,7 @@ function bindGallery(root) {
   });
 }
 
-// Esta inicialização atende somente busca.html; não existe roteador.
+
 const pageName = 'busca';
 
 function catalogOptions() {
@@ -608,7 +605,7 @@ function departmentNavigation() {
   }).join('') + `<a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>${products.length}</b></a>`;
 }
 
-// Movimento discreto da fotografia, apenas com mouse e sem redução de movimento.
+
 function bindProductHover(root = document) {
   const mouse = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -657,7 +654,7 @@ function startPage() {
   bindGallery(document);
   bindSearch(document);
   bindComparisonUI(document, () => {
-    // O estado dos botões é atualizado pela seleção.
+    
   });
   document.addEventListener('error', event => {
     const image = event.target;
@@ -686,7 +683,7 @@ function startPage() {
     main.focus({ preventScroll: true });
     main.scrollIntoView({ block: 'start' });
   };
-  // Voltar/avançar pode recuperar um documento do cache do navegador.
+  
   window.addEventListener('pageshow', event => { if (event.persisted) location.reload(); });
   responsiveUI.refresh();
   document.documentElement.dataset.ready = 'true';
