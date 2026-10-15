@@ -1,0 +1,17 @@
+{
+  "name": "eyeszone",
+  "version": "9.1.0",
+  "private": true,
+  "description": "Loja de equipamentos de segurança em HTML, CSS e JavaScript.",
+  "type": "module",
+  "scripts": {
+    "dev": "node js/serve.mjs",
+    "start": "node js/serve.mjs",
+    "build": "node js/build.mjs",
+    "preview": "node js/serve.mjs --dist",
+    "check": "node js/check.mjs && node js/check-responsive.mjs && node js/check-shopping.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
