@@ -616,8 +616,7 @@ const money = (value) =>
 const escapeHTML = (value) =>
   String(value ?? '').replace(
     /[&<>"']/g,
-    (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char],
-  );
+    (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 const normalize = (value) =>
   String(value)
     .normalize('NFD')
@@ -666,8 +665,7 @@ function toast(message, link = false) {
   element.onfocusout = element.onmouseleave = schedule;
   document.documentElement.style.setProperty(
     '--notice-space',
-    `${element.getBoundingClientRect().height + 16}px`,
-  );
+    `${element.getBoundingClientRect().height + 16}px`);
   clearTimeout(toastTimer);
   schedule();
 }
@@ -699,8 +697,7 @@ function bindDialogTabCycle(dialog) {
     if (event.key !== 'Tab') return;
     const controls = [
       ...dialog.querySelectorAll(
-        'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), [tabindex="0"]',
-      ),
+        'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), [tabindex="0"]'),
     ].filter((element) => element.getClientRects().length);
     const first = controls[0],
       last = controls.at(-1);
@@ -790,8 +787,7 @@ function validCart(value) {
         seen.has(item.id) ||
         !Number.isInteger(item.quantity) ||
         item.quantity < 1 ||
-        item.quantity > 99
-      )
+        item.quantity > 99)
         return false;
       seen.add(item.id);
       return true;
@@ -805,15 +801,13 @@ function validOrder(value) {
     !value ||
     typeof value !== 'object' ||
     !/^EZ-[0-9]{8}$/.test(value.id) ||
-    !Number.isFinite(Date.parse(value.date))
-  )
+    !Number.isFinite(Date.parse(value.date)))
     return null;
   if (
     typeof value.name !== 'string' ||
     typeof value.city !== 'string' ||
     !/^[A-Z]{2}$/.test(value.state) ||
-    !['Pix', 'Cartão'].includes(value.payment)
-  )
+    !['Pix', 'Cartão'].includes(value.payment))
     return null;
   const items = validCart(value.items).map((item) => ({ ...item, product: findProduct(item.id) }));
   if (!items.length) return null;
@@ -945,8 +939,7 @@ function bindComparisonUI(root, onPageChange) {
       button.setAttribute('aria-pressed', String(active));
       button.setAttribute(
         'aria-label',
-        `${active ? 'Selecionado para comparar:' : 'Comparar'} ${findProduct(button.dataset.compare).name}`,
-      );
+        `${active ? 'Selecionado para comparar:' : 'Comparar'} ${findProduct(button.dataset.compare).name}`);
       button.querySelector('span').textContent = active ? 'Selecionado' : 'Comparar';
     });
     dock.hidden =
@@ -955,8 +948,7 @@ function bindComparisonUI(root, onPageChange) {
         location.pathname
           .split('/')
           .pop()
-          .replace(/\.html$/, ''),
-      );
+          .replace(/\.html$/, ''));
     count.textContent = `${items.length} de 3 produtos`;
     hint.textContent =
       items.length < 2
@@ -965,8 +957,7 @@ function bindComparisonUI(root, onPageChange) {
     go.disabled = items.length < 2;
     root.documentElement.style.setProperty(
       '--comparison-space',
-      dock.hidden ? '0px' : `${dock.getBoundingClientRect().height}px`,
-    );
+      dock.hidden ? '0px' : `${dock.getBoundingClientRect().height}px`);
   }
   root.addEventListener('click', (event) => {
     const toggle = event.target.closest('[data-compare]');
@@ -1021,8 +1012,7 @@ function summary({ checkout = false } = {}) {
         ? `<div class="summary-products">${getCart()
             .map(
               (item) =>
-                `<div class="summary-item summary-product"><img src="${imageUrl(item.product)}" alt="" width="60" height="60"><span>${escapeHTML(item.product.name)}<small>${item.quantity} ${item.quantity === 1 ? 'unidade' : 'unidades'}</small></span><strong>${money(item.product.price * item.quantity)}</strong></div>`,
-            )
+                `<div class="summary-item summary-product"><img src="${imageUrl(item.product)}" alt="" width="60" height="60"><span>${escapeHTML(item.product.name)}<small>${item.quantity} ${item.quantity === 1 ? 'unidade' : 'unidades'}</small></span><strong>${money(item.product.price * item.quantity)}</strong></div>`)
             .join('')}</div>`
         : ''
     }
@@ -1042,13 +1032,11 @@ function filteredProducts({ category, query = '', maxPrice = '', sort = 'default
         product.description,
         product.short,
         product.application,
-      ].join(' '),
-    );
+      ].join(' '));
     return (
       (!category || product.category === category) &&
       terms.every((term) => text.includes(term)) &&
-      (maxPrice === '' || product.price <= Number(maxPrice))
-    );
+      (maxPrice === '' || product.price <= Number(maxPrice)));
   });
   if (sort === 'price-up') list.sort((a, b) => a.price - b.price);
   if (sort === 'price-down') list.sort((a, b) => b.price - a.price);
@@ -1124,8 +1112,7 @@ function bindSearch(root) {
     list.innerHTML = results
       .map(
         (product, index) =>
-          `<li id="suggestion-${product.id}" role="option" aria-selected="false" data-suggestion="${index}"><img src="${imageUrl(product)}" alt="" width="48" height="48"><span><strong>${escapeHTML(product.name)}</strong><small>${escapeHTML(product.short)}</small></span><b>${money(product.price)}</b></li>`,
-      )
+          `<li id="suggestion-${product.id}" role="option" aria-selected="false" data-suggestion="${index}"><img src="${imageUrl(product)}" alt="" width="48" height="48"><span><strong>${escapeHTML(product.name)}</strong><small>${escapeHTML(product.short)}</small></span><b>${money(product.price)}</b></li>`)
       .join('');
     status.textContent = results.length
       ? `${results.length} sugestões. Use as setas para escolher e Enter para abrir.`
@@ -1157,8 +1144,7 @@ function bindSearch(root) {
           ? (active + 1) % results.length
           : active <= 0
             ? results.length - 1
-            : active - 1,
-      );
+            : active - 1);
     } else if (event.key === 'Enter' && !panel.hidden && active >= 0) {
       event.preventDefault();
       visit(active);
@@ -1222,8 +1208,7 @@ function bindInfoDialogs() {
         event.clientX < rect.left ||
         event.clientX > rect.right ||
         event.clientY < rect.top ||
-        event.clientY > rect.bottom
-      )
+        event.clientY > rect.bottom)
         dialog.close();
     }
   });
@@ -1307,8 +1292,7 @@ function bindGallery(root) {
       event.clientX < rect.left ||
       event.clientX > rect.right ||
       event.clientY < rect.top ||
-      event.clientY > rect.bottom
-    )
+      event.clientY > rect.bottom)
       dialog.close();
   });
 }
@@ -1364,8 +1348,7 @@ function departmentNavigation() {
         return `<a href="categoria.html?categoria=${category.id}" data-nav="${category.id}"><span class="department-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><strong>${escapeHTML(category.name)}</strong><small>${count} equipamentos</small>${icon('chevron')}</a>`;
       })
       .join('') +
-    `<a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>${products.length}</b></a>`
-  );
+    `<a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>${products.length}</b></a>`);
 }
 
 function bindProductHover(root = document) {
@@ -1427,8 +1410,7 @@ function startPage() {
         image.hidden = true;
       }
     },
-    true,
-  );
+    true);
   const category =
     pageName === 'categoria'
       ? new URLSearchParams(location.search).get('categoria')
