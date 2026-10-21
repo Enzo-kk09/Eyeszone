@@ -982,7 +982,7 @@ function bindComparisonUI(root, onPageChange) {
 function productCard(product, variant = '') {
   return `<article class="card product-card ${variant}" data-product-id="${product.id}">
     <a class="card-link" href="produto.html?id=${product.id}">
-      <div class="photo product-card-image ${product.photoStyle ? 'photo-' + product.photoStyle : ''}"><span class="code">EZ / ${product.id.padStart(2, '0')}</span><img src="${imageUrl(product)}" data-product-image data-asset-id="eyeszone-product-${product.id}" alt="" loading="${variant === 'feature' ? 'eager' : 'lazy'}" ${variant === 'feature' ? 'fetchpriority="high"' : ''} width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
+      <div class="photo product-card-image ${product.photoStyle ? 'photo-' + product.photoStyle : ''}"><img src="${imageUrl(product)}" data-product-image data-asset-id="eyeszone-product-${product.id}" alt="" loading="${variant === 'feature' ? 'eager' : 'lazy'}" ${variant === 'feature' ? 'fetchpriority="high"' : ''} width="400" height="320"><span class="image-fallback" hidden>Imagem indisponível</span></div>
       <div class="card-copy"><h3>${escapeHTML(product.name)}</h3><p>${escapeHTML(product.short)}</p><strong class="price">${money(product.price)}</strong></div>
     </a>${compareButton(product)}
   </article>`;
@@ -1301,12 +1301,6 @@ function homePage() {
   const featured = findProduct('9');
   const highlights = ['15', '18', '4', '21'].map(findProduct);
   const offers = ['14', '17', '23'].map(findProduct);
-  const departmentNotes = {
-    cameras: 'Acompanhe cada ambiente.',
-    alarmes: 'Perceba o que sai da rotina.',
-    acesso: 'Escolha quem pode entrar.',
-    gravacao: 'Guarde o que importa.',
-  };
 
   return `
     <nav class="home-shortcuts" aria-label="Seções da página inicial">
@@ -1326,7 +1320,7 @@ function homePage() {
       </div>
 
       <div class="home-featured-product" data-product-id="${featured.id}">
-        <div class="home-featured-top"><span>Em foco</span><span>EZ / ${featured.id.padStart(2, '0')}</span></div>
+        <div class="home-featured-top"><span>Em foco</span></div>
         <a class="home-featured-link" href="produto.html?id=${featured.id}">
           <div class="home-featured-image photo">
             <img src="${imageUrl(featured)}" data-product-image alt="" width="894" height="445" fetchpriority="high" loading="eager">
@@ -1343,8 +1337,7 @@ function homePage() {
 
     <section class="home-section" id="destaques" aria-labelledby="highlights-title">
       <div class="home-section-heading">
-        <div><p class="home-eyebrow">01 / Destaques</p><h2 id="highlights-title">Um olhar para cada necessidade.</h2></div>
-        <p>Câmeras, alarmes, fechaduras e gravação.<br>Conheça a seleção da EYESZONE.</p>
+        <h2 id="highlights-title">Destaques</h2>
       </div>
 
       <div class="home-highlights">${highlights.map((product) => productCard(product)).join('\n')}</div>
@@ -1352,7 +1345,7 @@ function homePage() {
 
     <section class="home-offers home-section" id="promocoes" aria-labelledby="offers-title">
       <div class="home-section-heading">
-        <div><p class="home-eyebrow">02 / Promoções</p><h2 id="offers-title">Pequenas escolhas.<br>Mais proteção.</h2></div>
+        <h2 id="offers-title">Promoções</h2>
         <div class="home-offer-intro"><span class="home-budget">Seleção até ${money(300)}</span><p>Uma câmera Wi-Fi, um sensor ou mais espaço para as gravações. Comece pelo que você precisa.</p></div>
       </div>
 
@@ -1363,17 +1356,15 @@ function homePage() {
 
     <section class="home-section home-catalog" id="catalogo" aria-labelledby="home-catalog-title">
       <div class="home-section-heading">
-        <div><p class="home-eyebrow">03 / Catálogo</p><h2 id="home-catalog-title">Seu projeto começa por aqui.</h2></div>
+        <h2 id="home-catalog-title">Catálogo</h2>
         <a class="home-text-link" href="produtos.html">Ver os ${products.length} equipamentos ${icon('chevron')}</a>
       </div>
 
       <div class="home-departments">
-        ${categories.map((category, index) => `
+        ${categories.map((category) => `
           <a class="home-department" href="categoria.html?categoria=${category.id}">
-            <span class="home-department-index">0${index + 1} / ${products.filter((product) => product.category === category.id).length} equipamentos</span>
             <img src="./assets/${category.image}" alt="" width="250" height="200" loading="lazy">
             <h3>${escapeHTML(category.name)}</h3>
-            <p>${departmentNotes[category.id]}</p>
             ${icon('chevron')}
           </a>`).join('\n')}
       </div>
@@ -1400,9 +1391,9 @@ function renderPage() {
 function departmentNavigation() {
   return (
     categories
-      .map((category, index) => {
+      .map((category) => {
         const count = products.filter((product) => product.category === category.id).length;
-        return `<a href="categoria.html?categoria=${category.id}" data-nav="${category.id}"><span class="department-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span><strong>${escapeHTML(category.name)}</strong><small>${count} equipamentos</small>${icon('chevron')}</a>`;
+        return `<a href="categoria.html?categoria=${category.id}" data-nav="${category.id}"><strong>${escapeHTML(category.name)}</strong><small>${count} equipamentos</small>${icon('chevron')}</a>`;
       })
       .join('') +
     `<a class="all" href="produtos.html" data-nav="all">Todos os equipamentos <b>${products.length}</b></a>`);

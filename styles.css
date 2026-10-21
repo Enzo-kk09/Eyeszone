@@ -5101,6 +5101,10 @@ dialog::backdrop {
   line-height: 1.08;
 }
 
+.home-section-heading > h2 {
+  margin-top: 0;
+}
+
 .home-section-heading > p {
   font-size: 15px;
   line-height: 1.6;
@@ -5218,12 +5222,6 @@ dialog::backdrop {
   border-color: var(--green);
 }
 
-.home-department-index {
-  font-size: 11px;
-  color: var(--green);
-  letter-spacing: 0.6px;
-}
-
 .home-department img {
   width: 100%;
   height: 148px;
@@ -5234,12 +5232,6 @@ dialog::backdrop {
 .home-department h3 {
   font-size: 28px;
   max-width: 175px;
-}
-
-.home-department p {
-  font-size: 13px;
-  line-height: 1.5;
-  margin: 12px 20px 0 0;
 }
 
 .home-department > .icon {
@@ -5508,18 +5500,17 @@ dialog::backdrop {
     align-items: center;
   }
 
-  .home-department-index {
-    grid-column: 1 / -1;
-  }
-
   .home-department img {
-    grid-row: 2 / 4;
+    grid-column: 1;
+    grid-row: 1;
     height: 100px;
     margin: 0;
   }
 
-  .home-department p {
-    margin: 0 10px 0 0;
+  .home-department h3 {
+    grid-column: 2;
+    grid-row: 1;
+    padding-right: 14px;
   }
 
   .home-page .home-section .card-copy h3 {
