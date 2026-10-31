@@ -3,10 +3,8 @@ let catalog = { products: [], categories: [] };
 const currency = (value) => (value / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const cents = (product) => Math.round(product.price * 100);
 const escapeText = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const normalizeText = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const productById = (id) => catalog.products.find((product) => product.id === String(id));
 const categoryById = (id) => catalog.categories.find((category) => category.id === id);
-const parameters = new URLSearchParams(location.search);
 function readSaved(key, fallback) {
     try {
         const data = JSON.parse(localStorage.getItem(key));
@@ -67,22 +65,6 @@ function updateChrome() {
     }
     document.body.classList.toggle('has-compare-dock', !!dock && !dock.hidden);
 }
-function addToCart(id, quantity = 1) {
-    const product = productById(id);
-    if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 99) return false;
-    const lines = getCart();
-    const existing = lines.find((line) => line.id === id);
-    if (existing && existing.quantity + quantity > 99) {
-        notify('O limite é de 99 unidades por produto.');
-        return false;
-    }
-    if (existing) existing.quantity += quantity;
-    else lines.push({ id, quantity });
-    if (!writeSaved('eyeszone-cart-v2', lines)) return false;
-    updateChrome();
-    notify('Produto adicionado ao carrinho.');
-    return true;
-}
 function toggleComparison(id) {
     const ids = getComparison();
     const index = ids.indexOf(id);
@@ -93,10 +75,6 @@ function toggleComparison(id) {
         return;
     }
     if (writeSaved('eyeszone-compare-v2', ids)) updateChrome();
-}
-function productCard(product) {
-    const category = categoryById(product.category);
-    return `<article class="catalog-card"><a class="catalog-photo ${product.photoStyle === 'context' ? 'photo-context' : ''}" href="produto.html?id=${product.id}"><img src="assets/${escapeText(product.image)}" alt="${escapeText(product.name)}" width="600" height="600" loading="lazy"><span class="photo-arrow" aria-hidden="true">↗</span></a><div class="catalog-copy"><p class="product-kicker">${escapeText(category.short)}</p><h2><a href="produto.html?id=${product.id}">${escapeText(product.name)}</a></h2><p class="catalog-spec">${escapeText(product.short)}</p><p class="catalog-price">${currency(cents(product))}</p><button class="compare-button" type="button" data-compare="${product.id}" aria-pressed="false" aria-label="Comparar ${escapeText(product.name)}">+ Comparar</button></div></article>`;
 }
 function emptyState(title, text, link = 'produtos.html', label = 'Explorar produtos') {
     return `<section class="empty-state" aria-label="${escapeText(title)}"><span class="empty-mark" aria-hidden="true">↗</span><h2>${escapeText(title)}</h2><p>${escapeText(text)}</p><a class="button" href="${link}">${escapeText(label)} <span aria-hidden="true">↗</span></a></section>`;
@@ -144,7 +122,7 @@ startPage(() => {
     const summary = document.querySelector('#checkout-summary');
     const shippingPrice = () => form.elements.entrega.value === 'expressa' ? 3490 : 1990;
     const renderSummary = () => {
-        summary.innerHTML = `<span class="eyebrow">REVISE ANTES DE CONCLUIR</span><h2>Seu pedido<span>.</span></h2><ul class="summary-items">${lines.map((line) => {
+        summary.innerHTML = `<span class="eyebrow">REVISE ANTES DE CONCLUIR</span><h2 id="checkout-summary-title">Seu pedido<span>.</span></h2><ul class="summary-items">${lines.map((line) => {
             const product = productById(line.id);
             return `<li><img src="assets/${product.image}" alt="" width="80" height="80"><div><span>${escapeText(product.name)}</span><small>${line.quantity} ${line.quantity === 1 ? 'unidade' : 'unidades'}</small></div><strong>${currency(cents(product) * line.quantity)}</strong></li>`;
         }).join('')}</ul>${orderSummary(lines, shippingPrice())}<button class="button full-button" type="submit" form="checkout-form" id="finish-order">Concluir pedido <span aria-hidden="true">↗</span></button><p class="summary-footnote">Demonstração sem cobrança. Use dados fictícios para testar.</p><a class="text-link" href="carrinho.html">← Voltar ao carrinho</a>`;

@@ -3,10 +3,8 @@ let catalog = { products: [], categories: [] };
 const currency = (value) => (value / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const cents = (product) => Math.round(product.price * 100);
 const escapeText = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const normalizeText = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const productById = (id) => catalog.products.find((product) => product.id === String(id));
 const categoryById = (id) => catalog.categories.find((category) => category.id === id);
-const parameters = new URLSearchParams(location.search);
 function readSaved(key, fallback) {
     try {
         const data = JSON.parse(localStorage.getItem(key));
@@ -32,9 +30,6 @@ function getCart() {
 function getComparison() {
     const data = readSaved('eyeszone-compare-v2', []);
     return Array.isArray(data) ? [...new Set(data)].filter((id) => productById(id)).slice(0, 3) : [];
-}
-function subtotal(lines = getCart()) {
-    return lines.reduce((sum, line) => sum + cents(productById(line.id)) * line.quantity, 0);
 }
 function notify(message) {
     const notice = document.querySelector('#notice');
@@ -94,15 +89,8 @@ function toggleComparison(id) {
     }
     if (writeSaved('eyeszone-compare-v2', ids)) updateChrome();
 }
-function productCard(product) {
-    const category = categoryById(product.category);
-    return `<article class="catalog-card"><a class="catalog-photo ${product.photoStyle === 'context' ? 'photo-context' : ''}" href="produto.html?id=${product.id}"><img src="assets/${escapeText(product.image)}" alt="${escapeText(product.name)}" width="600" height="600" loading="lazy"><span class="photo-arrow" aria-hidden="true">↗</span></a><div class="catalog-copy"><p class="product-kicker">${escapeText(category.short)}</p><h2><a href="produto.html?id=${product.id}">${escapeText(product.name)}</a></h2><p class="catalog-spec">${escapeText(product.short)}</p><p class="catalog-price">${currency(cents(product))}</p><button class="compare-button" type="button" data-compare="${product.id}" aria-pressed="false" aria-label="Comparar ${escapeText(product.name)}">+ Comparar</button></div></article>`;
-}
 function emptyState(title, text, link = 'produtos.html', label = 'Explorar produtos') {
     return `<section class="empty-state" aria-label="${escapeText(title)}"><span class="empty-mark" aria-hidden="true">↗</span><h2>${escapeText(title)}</h2><p>${escapeText(text)}</p><a class="button" href="${link}">${escapeText(label)} <span aria-hidden="true">↗</span></a></section>`;
-}
-function orderSummary(lines, shipping = null) {
-    return `<dl class="totals"><div><dt>Produtos</dt><dd>${currency(subtotal(lines))}</dd></div><div><dt>Entrega</dt><dd>${shipping === null ? 'A calcular' : currency(shipping)}</dd></div><div class="total-line"><dt>${shipping === null ? 'Subtotal' : 'Total'}</dt><dd>${currency(subtotal(lines) + (shipping ?? 0))}</dd></div></dl>`;
 }
 function setPageError(error) {
     document.querySelector('#conteudo').innerHTML = emptyState('Não foi possível carregar.', 'Confira sua conexão e tente novamente.', location.pathname.split('/').pop() || 'index.html', 'Tentar novamente').replace('<h2>', '<h1 class="empty-title">').replace('</h2>', '</h1>');
@@ -142,7 +130,7 @@ startPage(() => {
             return;
         }
         const row = (label, content) => `<tr><th scope="row">${label}</th>${products.map((product) => `<td>${content(product)}</td>`).join('')}</tr>`;
-        region.innerHTML = `<div class="content-topline"><p>${products.length} ${products.length === 1 ? 'produto selecionado. Adicione outro para comparar.' : 'produtos selecionados'}</p><a class="text-link" href="produtos.html">Escolher ${products.length < 3 ? 'outro' : 'produtos'} ↗</a></div><p class="table-hint">Deslize para comparar →</p><div class="table-scroll" role="region" aria-label="Comparação de produtos. Deslize para ver todas as colunas." tabindex="0"><table class="comparison-table"><caption class="visually-hidden">Características dos equipamentos selecionados</caption><thead><tr><td></td>${products.map((product) => `<th scope="col"><a class="comparison-image" href="produto.html?id=${product.id}"><img src="assets/${product.image}" alt="" width="250" height="250"></a><a class="comparison-title" href="produto.html?id=${product.id}">${escapeText(product.name)}</a><button class="plain-button" type="button" data-remove-compare="${product.id}" aria-label="Remover ${escapeText(product.name)} da comparação">Remover</button></th>`).join('')}</tr></thead><tbody>${row('Preço', (product) => `<strong class="comparison-price">${currency(cents(product))}</strong>`)}${row('Categoria', (product) => escapeText(categoryById(product.category).name))}${row('Em resumo', (product) => escapeText(product.short))}${row('Recursos', (product) => `<ul>${product.features.map((feature) => `<li>${escapeText(feature)}</li>`).join('')}</ul>`)}${row('Compatibilidade', (product) => `<details><summary>Ver requisitos</summary><p>${escapeText(product.compatibility)}</p></details>`)}${row('Custos adicionais', () => 'Confira instalação, acessórios, armazenamento e possíveis assinaturas.')}${row('Sua escolha', (product) => `<button class="button" type="button" data-add="${product.id}">Adicionar <span aria-hidden="true">+</span></button>`)}</tbody></table></div><p class="comparison-note">Compare as funções. A seleção não confirma compatibilidade entre os equipamentos.</p><p class="price-note">Preços ilustrativos para este projeto.</p>`;
+        region.innerHTML = `<div class="content-topline"><p>${products.length} ${products.length === 1 ? 'produto selecionado. Adicione outro para comparar.' : 'produtos selecionados'}</p><a class="text-link" href="produtos.html">Escolher ${products.length < 3 ? 'outro' : 'produtos'} ↗</a></div><p class="table-hint">Deslize para comparar →</p><div class="table-scroll" role="region" aria-label="Tabela de comparação de produtos" tabindex="0"><table class="comparison-table"><caption class="visually-hidden">Características dos equipamentos selecionados</caption><thead><tr><td><span class="visually-hidden">Característica</span></td>${products.map((product) => `<th scope="col"><a class="comparison-image" href="produto.html?id=${product.id}" aria-label="Ver ${escapeText(product.name)}"><img src="assets/${product.image}" alt="" width="250" height="250"></a><a class="comparison-title" href="produto.html?id=${product.id}">${escapeText(product.name)}</a><button class="plain-button" type="button" data-remove-compare="${product.id}" aria-label="Remover ${escapeText(product.name)} da comparação">Remover</button></th>`).join('')}</tr></thead><tbody>${row('Preço', (product) => `<strong class="comparison-price">${currency(cents(product))}</strong>`)}${row('Categoria', (product) => escapeText(categoryById(product.category).name))}${row('Em resumo', (product) => escapeText(product.short))}${row('Recursos', (product) => `<ul>${product.features.map((feature) => `<li>${escapeText(feature)}</li>`).join('')}</ul>`)}${row('Compatibilidade', (product) => `<details><summary>Ver requisitos</summary><p>${escapeText(product.compatibility)}</p></details>`)}${row('Custos adicionais', () => 'Confira instalação, acessórios, armazenamento e possíveis assinaturas.')}${row('Sua escolha', (product) => `<button class="button" type="button" data-add="${product.id}" aria-label="Adicionar ${escapeText(product.name)} ao carrinho">Adicionar <span aria-hidden="true">+</span></button>`)}</tbody></table></div><p class="comparison-note">Compare as funções. A seleção não confirma compatibilidade entre os equipamentos.</p><p class="price-note">Preços ilustrativos para este projeto.</p>`;
         updateChrome();
     };
     region.addEventListener('click', (event) => {

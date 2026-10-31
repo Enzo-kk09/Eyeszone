@@ -3,10 +3,8 @@ let catalog = { products: [], categories: [] };
 const currency = (value) => (value / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const cents = (product) => Math.round(product.price * 100);
 const escapeText = (value) => String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const normalizeText = (value) => String(value).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const productById = (id) => catalog.products.find((product) => product.id === String(id));
 const categoryById = (id) => catalog.categories.find((category) => category.id === id);
-const parameters = new URLSearchParams(location.search);
 function readSaved(key, fallback) {
     try {
         const data = JSON.parse(localStorage.getItem(key));
@@ -32,9 +30,6 @@ function getCart() {
 function getComparison() {
     const data = readSaved('eyeszone-compare-v2', []);
     return Array.isArray(data) ? [...new Set(data)].filter((id) => productById(id)).slice(0, 3) : [];
-}
-function subtotal(lines = getCart()) {
-    return lines.reduce((sum, line) => sum + cents(productById(line.id)) * line.quantity, 0);
 }
 function notify(message) {
     const notice = document.querySelector('#notice');
@@ -67,22 +62,6 @@ function updateChrome() {
     }
     document.body.classList.toggle('has-compare-dock', !!dock && !dock.hidden);
 }
-function addToCart(id, quantity = 1) {
-    const product = productById(id);
-    if (!product || !Number.isInteger(quantity) || quantity < 1 || quantity > 99) return false;
-    const lines = getCart();
-    const existing = lines.find((line) => line.id === id);
-    if (existing && existing.quantity + quantity > 99) {
-        notify('O limite é de 99 unidades por produto.');
-        return false;
-    }
-    if (existing) existing.quantity += quantity;
-    else lines.push({ id, quantity });
-    if (!writeSaved('eyeszone-cart-v2', lines)) return false;
-    updateChrome();
-    notify('Produto adicionado ao carrinho.');
-    return true;
-}
 function toggleComparison(id) {
     const ids = getComparison();
     const index = ids.indexOf(id);
@@ -94,15 +73,8 @@ function toggleComparison(id) {
     }
     if (writeSaved('eyeszone-compare-v2', ids)) updateChrome();
 }
-function productCard(product) {
-    const category = categoryById(product.category);
-    return `<article class="catalog-card"><a class="catalog-photo ${product.photoStyle === 'context' ? 'photo-context' : ''}" href="produto.html?id=${product.id}"><img src="assets/${escapeText(product.image)}" alt="${escapeText(product.name)}" width="600" height="600" loading="lazy"><span class="photo-arrow" aria-hidden="true">↗</span></a><div class="catalog-copy"><p class="product-kicker">${escapeText(category.short)}</p><h2><a href="produto.html?id=${product.id}">${escapeText(product.name)}</a></h2><p class="catalog-spec">${escapeText(product.short)}</p><p class="catalog-price">${currency(cents(product))}</p><button class="compare-button" type="button" data-compare="${product.id}" aria-pressed="false" aria-label="Comparar ${escapeText(product.name)}">+ Comparar</button></div></article>`;
-}
 function emptyState(title, text, link = 'produtos.html', label = 'Explorar produtos') {
     return `<section class="empty-state" aria-label="${escapeText(title)}"><span class="empty-mark" aria-hidden="true">↗</span><h2>${escapeText(title)}</h2><p>${escapeText(text)}</p><a class="button" href="${link}">${escapeText(label)} <span aria-hidden="true">↗</span></a></section>`;
-}
-function orderSummary(lines, shipping = null) {
-    return `<dl class="totals"><div><dt>Produtos</dt><dd>${currency(subtotal(lines))}</dd></div><div><dt>Entrega</dt><dd>${shipping === null ? 'A calcular' : currency(shipping)}</dd></div><div class="total-line"><dt>${shipping === null ? 'Subtotal' : 'Total'}</dt><dd>${currency(subtotal(lines) + (shipping ?? 0))}</dd></div></dl>`;
 }
 function setPageError(error) {
     document.querySelector('#conteudo').innerHTML = emptyState('Não foi possível carregar.', 'Confira sua conexão e tente novamente.', location.pathname.split('/').pop() || 'index.html', 'Tentar novamente').replace('<h2>', '<h1 class="empty-title">').replace('</h2>', '</h1>');
@@ -195,7 +167,6 @@ dialog.addEventListener('click', (event) => {
     }
 });
 dialog.addEventListener('close', () => opener?.focus());
-
 
 startPage(() => {});
 
